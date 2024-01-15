@@ -27,7 +27,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/userDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://127.0.0.1:27017/userDB", {useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
@@ -103,6 +103,7 @@ app.get("/secrets", function(req, res){
     }
   });
 });
+
 
 app.get("/submit", function(req, res){
   if (req.isAuthenticated()){
